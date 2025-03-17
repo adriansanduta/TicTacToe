@@ -7,7 +7,7 @@ let board = new Array(9);
 
 allSquares.forEach((square, i) => {
     square.addEventListener('click', () => {
-        if (gameOver) {
+        if (square.innerHTML || gameOver) {
             return;
         }
 
@@ -20,13 +20,26 @@ allSquares.forEach((square, i) => {
         }
 
         if (checkDraw()) {
-        
+            title.innerHTML = `It's a Draw!`;
+            gameOver = true;
+            return;
         }
 
         currentPlayer = currentPlayer === "X" ? "O" : "X";
         title.innerHTML = `${currentPlayer}'s Turn`;
     });
 });  
+
+function restartGame() {
+    allSquares.forEach(square => {
+        square.innerHTML = '';
+    });
+
+    currentPlayer = "X";
+    gameOver = false;
+    board = new Array(9);
+    title.innerHTML = `${currentPlayer}'s Turn`;
+}
 
 function checkDraw() {
  /* for (let i = 0; i < board.length; i++) {
