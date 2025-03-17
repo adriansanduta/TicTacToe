@@ -25,4 +25,13 @@ function checkWin() {
 
     for (let i = 0; i < winningIndicies.length; i++) {
         const matchingIndicies = winningIndicies[i];
+        let symbol1 = board[ matchingIndicies[0]];
+        let symbol2 = board[matchingIndicies[1]];
+        let symbol3 = board[matchingIndicies[2]];
+
+        if (symbol1 === symbol2 && symbol2 === symbol3 ) {
+            console.log('winner at', matchingIndicies);
+        }
+
+}
 }
