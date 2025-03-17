@@ -29,11 +29,18 @@ allSquares.forEach((square, i) => {
 });  
 
 function checkDraw() {
-  for (let i = 0; i < board.length; i++) {
+ /* for (let i = 0; i < board.length; i++) {
       if (!board[i]) {
           return false;
       }
   }
+  return true; */
+
+  board.every(symbol => {
+    if (symbol) {
+        return true;
+    }});
+
 }
 
 function checkWin() {
